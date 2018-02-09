@@ -49,7 +49,6 @@ var collections = ["articles"];
 // Use mongojs to hook the database to the db variable
 var mongojs = mongojs(databaseUrl, collections);
 
-
 app.get("/clear", function (req, res) {
   // Query: In our database, go to the animals collection, then "find" everything
   mongoose.db.articles.find({}).remove({})
