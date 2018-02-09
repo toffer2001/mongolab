@@ -51,7 +51,7 @@ var mongojs = mongojs(databaseUrl, collections);
 
 app.get("/clear", function (req, res) {
   // Query: In our database, go to the animals collection, then "find" everything
-  mongojs.articles.remove()
+  mongojs.articles.remove({})
      res.redirect('/');
 
 });
