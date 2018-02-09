@@ -46,7 +46,8 @@ $.getJSON("/articles", function(data) {
     newRow.append(panelBody);
     newRow.append(storyClass);
     storyClass.append(story);
-    // newRow.append(linkText).append(a.attr('href', articleUrl));
+    a.attr('href', articleUrl).text("Click Here");
+    newRow.append(a);
     newRow.append(imageClass);
     imageClass.append(image);
   }
