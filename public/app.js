@@ -31,7 +31,7 @@ $.getJSON("/articles", function(data) {
     var story = $("<p data-id=" + data[i]._id + ">").text(data[i].story);
     var a = $("<a>");
     var linkText = "Click to see article";
-    var articleUrl = data[i].link;
+    var articleUrl = "http://www.foxnews.com" + data[i].link;
     var image = $('<img>');
     image.attr('src', data[i].image);
     image.addClass('img-responsive img-rounded');
@@ -46,10 +46,10 @@ $.getJSON("/articles", function(data) {
     newRow.append(panelBody);
     newRow.append(storyClass);
     storyClass.append(story);
-    a.attr('href', articleUrl).text("Click Here");
-    newRow.append(a);
     newRow.append(imageClass);
     imageClass.append(image);
+    a.attr('href', articleUrl).text("Click Here for Full Article");
+    newRow.append(a);
   }
 
 });

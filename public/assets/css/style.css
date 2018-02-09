@@ -23,7 +23,10 @@
         padding: 5;
 
       }
+      a {
+        padding-left: 15px;
 
+      }
       #notes {
         /* float: right; */
         /* width: 30%; */
