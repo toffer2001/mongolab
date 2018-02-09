@@ -28,22 +28,25 @@ $.getJSON("/articles", function(data) {
 
 
     var title = $("<h2>").text(data[i].title);
-    var story = $("<p>").text(data[i].story);
+    var story = $("<p data-id=" + data[i]._id + ">").text(data[i].story);
+    var a = $("<a>");
+    var linkText = "Click to see article";
     var articleUrl = data[i].link;
     var image = $('<img>');
     image.attr('src', data[i].image);
     image.addClass('img-responsive img-rounded');
 
-    
 
     $('#foxArticles').append(newRow);
     newRow.append(panel);
     newRow.append(panelHeading)
     panelHeading.append(title);
+   
     
     newRow.append(panelBody);
     newRow.append(storyClass);
     storyClass.append(story);
+    // newRow.append(linkText).append(a.attr('href', articleUrl));
     newRow.append(imageClass);
     imageClass.append(image);
   }
@@ -66,9 +69,9 @@ $(document).on("click", "p", function() {
   })
     // With that done, add the note information to the page
     .done(function(data) {
-      console.log(data);
+      console.log("DATA: " , data);
       // The title of the article
-      $("#notes").append("<h2>" + data.title + "</h2>");
+      $("#notes").append("<h3>" + data.title + "</h3>");
       // An input to enter a new title
       $("#notes").append("<input id='titleinput' name='title' >");
       // A textarea to add a new note body
