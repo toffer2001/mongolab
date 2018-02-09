@@ -72,7 +72,7 @@ $(document).on("click", "p", function() {
     .done(function(data) {
       console.log("DATA: " , data);
       // The title of the article
-      $("#notes").append("<h3>" + data.title + "</h3>");
+      $("#notes").append("<h3>" + data.title +"NOTES:</h3>");
       // An input to enter a new title
       $("#notes").append("<input id='titleinput' name='title' >");
       // A textarea to add a new note body
