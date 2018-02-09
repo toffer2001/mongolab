@@ -31,7 +31,7 @@ app.use(express.static("public"));
 
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = "mongodb://heroku_5gd4w6h3:i1kf9g8uoonsmgknk9uap4nha7@ds125578.mlab.com:25578/heroku_5gd4w6h3";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-lab";
 
 // // Set mongoose to leverage built in JavaScript ES6 Promises
 // // Connect to the Mongo DB
@@ -39,6 +39,7 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
+
 
 // Database configuration
 // Save the URL of our database as well as the name of our collection
