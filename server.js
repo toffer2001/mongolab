@@ -31,7 +31,7 @@ app.use(express.static("public"));
 
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-lab";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongolab";
 
 // // Set mongoose to leverage built in JavaScript ES6 Promises
 // // Connect to the Mongo DB
@@ -43,7 +43,7 @@ mongoose.connect(MONGODB_URI, {
 
 // Database configuration
 // Save the URL of our database as well as the name of our collection
-var databaseUrl = "mongo-lab";
+var databaseUrl = "mongolab";
 var collections = ["articles"];
 
 // Use mongojs to hook the database to the db variable
@@ -51,7 +51,8 @@ var mongojs = mongojs(databaseUrl, collections);
 
 app.get("/clear", function (req, res) {
   // Query: In our database, go to the animals collection, then "find" everything
-  mongoose.db.articles.find({}).remove({})
+  mongojs.articles.drop()
+  // mongoose.db.articles.find({}).remove({})
      res.redirect('/');
 
 });
